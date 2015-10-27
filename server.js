@@ -1,9 +1,15 @@
 // Dependencies
-var express = require('express');
-var app = express();
+var app = require('express')();
 
-// Express setup
-//
+// MySql (Sequelize) setup
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('mysql://localhost:1028/dbName', {});
+// Check db connection
+sequelize.authenticate().then(function (result) {
+	console.log('MySQL local instance connected')
+}, function (err) { // Unable to connect
+	console.log('Error --> name : ' + err.name + ' , message : ' + err.message)
+});
 
 // Routing
 app.get('/', function (req, res) {
@@ -11,9 +17,9 @@ app.get('/', function (req, res) {
 });
 
 // Listen to clients
-var server = app.listen(1027, function () {
+var server = app.listen(1027, 'localhost', function () {
 	var host = server.address().address;
 	var port = server.address().port;
 
-	console.log('Survey App listening on IP %s and Port %s', host, port);
+	console.log('Survey App listening on IP ' + host + ' and Port ' + port);
 });
