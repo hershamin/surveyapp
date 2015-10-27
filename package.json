@@ -1,0 +1,10 @@
+{
+  "name": "SurveyApp",
+  "description": "Admins can post multiple choice surveys for guests to vote on",
+  "author": "Hersh Amin",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mysql": "^2.9.0",
+    "sequelize": "^3.12.2"
+  }
+}
