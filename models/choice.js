@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-	return sequelize.define('Question', {
-		questionText: DataTypes.STRING,
+	return sequelize.define('Choice', {
+		choiceText: DataTypes.STRING,
 		//
 	}, {
 		instanceMethods: {
