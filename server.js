@@ -3,15 +3,8 @@ var app = require('express')();
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json','utf8'));
 
-// MySql (Sequelize) setup
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize(config.dbURI, {});
-// Check db connection
-sequelize.authenticate().then(function (result) {
-	console.log('MySQL local instance connected')
-}, function (err) { // Unable to connect
-	console.log('Error --> name : ' + err.name + ' , message : ' + err.message)
-});
+// Set DB
+app.set('models', require('./models'))
 
 // Routing
 app.get('/', function (req, res) {
