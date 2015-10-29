@@ -10,7 +10,7 @@ sequelize.authenticate().then(function (result) {
 	console.log('MySQL local instance connected')
 }, function (err) { // Unable to connect
 	console.log('Error --> name : ' + err.name + ' , message : ' + err.message)
-	process.exit(1); // Exit nodejs process
+	//process.exit(1); // Exit nodejs process
 });
 
 // Load models

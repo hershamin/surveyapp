@@ -1,14 +1,21 @@
 // Dependencies
-var app = require('express')();
+var express = require('express');
+var app = express();
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json','utf8'));
 
 // Set DB
 app.set('models', require('./models'))
 
+// Set views & public directory
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'views', 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 // Routing
 app.get('/', function (req, res) {
-	res.end('Not Found!');
+	res.render('index');
 });
 
 // Listen to clients
