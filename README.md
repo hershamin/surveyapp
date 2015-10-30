@@ -1,5 +1,6 @@
 # surveyapp
 Admins can post multiple choice survey questions, guests can answer
+**NOTE:** This is still work in progress!
 
 ## Usage
 * Clone this repo & cd into 'surveyapp' directory

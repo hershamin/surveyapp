@@ -18,6 +18,14 @@ app.get('/', function (req, res) {
 	res.render('index');
 });
 
+app.get('/admin', function (req, res) {
+	res.render('admin');
+});
+
+app.get('/polls', function (req, res) {
+	res.render('polls');
+});
+
 // Listen to clients
 var server = app.listen(config.port, config.ip, function () {
 	var host = server.address().address;
