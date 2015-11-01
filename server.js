@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync('config.json','utf8'));
+var dbOperations = require('./dbOps.js');
 
 // Set DB
 app.set('models', require('./models'))
