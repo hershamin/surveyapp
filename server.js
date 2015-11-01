@@ -26,13 +26,21 @@ app.get('/admin', function (req, res) {
 	res.render('admin');
 });
 
+app.get('/polls', function (req, res) {
+	res.render('polls');
+});
+
 app.post('/question', function (req, res) {
 	if (!req.body) return res.sendStatus(400);
 	//
 });
 
-app.get('/polls/:name', function (req, res) {
-	res.render('polls');
+app.get('/question/:userName', function (req, res) {
+	//
+});
+
+app.post('/vote/:question/:userName', function (req, res) {
+	//
 });
 
 // Listen to clients
