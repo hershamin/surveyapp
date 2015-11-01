@@ -83,16 +83,16 @@ app.get('/polls', function (req, res) {
 
 app.post('/question', ensureAuthenticated, function (req, res, next) {
 	if (!req.body) return res.sendStatus(400);
-	dbOps.postQuestion(req, res, app);
+	dbOperations.postQuestion(req, res, app);
 });
 
 app.get('/question/:userName', function (req, res) {
-	dbOps.getQuestion(req, res, app);
+	dbOperations.getQuestion(req, res, app);
 });
 
 app.post('/vote/:question/:userName', function (req, res) {
 	if (!req.body) return res.sendStatus(400);
-	dbOps.voteQuestion(req, res, app);
+	dbOperations.voteQuestion(req, res, app);
 });
 
 // Listen to clients
