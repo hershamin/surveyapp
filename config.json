@@ -1,5 +1,7 @@
 {
 	"dbURI":"mysql://localhost:1028/dbName",
 	"port" : 1027,
-	"ip" : "localhost"
+	"ip" : "localhost",
+	"adminUserName" : "admin",
+	"adminPassword" : "admin123"
 }
