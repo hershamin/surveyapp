@@ -7,6 +7,10 @@ var config = JSON.parse(fs.readFileSync('config.json','utf8'));
 // Set DB
 app.set('models', require('./models'))
 
+// Set body parser for post request
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 // Set views & public directory
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'views', 'public')));
@@ -22,7 +26,12 @@ app.get('/admin', function (req, res) {
 	res.render('admin');
 });
 
-app.get('/polls', function (req, res) {
+app.post('/question', function (req, res) {
+	if (!req.body) return res.sendStatus(400);
+	//
+});
+
+app.get('/polls/:name', function (req, res) {
 	res.render('polls');
 });
 

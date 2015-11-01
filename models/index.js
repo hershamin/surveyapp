@@ -27,8 +27,8 @@ models.forEach(function (model) {
 (function (m) { // Question can have many Choices, Each Choice can have many Votes
 	m.Choice.belongsTo(m.Question);
 	m.Question.hasMany(m.Choice); // Each question can have many choices
-	m.Vote.belongsTo(m.Choice);
-	m.Choice.hasMany(m.Vote); // Each choice can have many votes
+	m.Vote.belongsToMany(m.Question, {through:'VoteQuestion'});
+	m.Question.belongsToMany(m.Vote, {through:'VoteQuestion'}); // Each question/vote can have many votes/questions
 })(module.exports);
 
 // Export connection
